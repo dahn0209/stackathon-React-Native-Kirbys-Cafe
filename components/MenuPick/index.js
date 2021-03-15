@@ -16,13 +16,15 @@ import {
   MenuTrigger,
 } from 'react-native-popup-menu';
 
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+// import {Login,Signup} from
+
 import styles from './styles';
 
-function MenuPick() {
-  function pressHandler() {
-    navigation.navigae('');
-  }
+const AuthStack = createStackNavigator();
 
+function MenuPick() {
   return (
     <View style={styles.container}>
       <MenuProvider style={{ flexDirection: 'column', padding: 90 }}>
@@ -37,6 +39,7 @@ function MenuPick() {
               </MenuOption>
               <MenuOption value={'Home'}>
                 <Text style={styles.menuContent}>Home</Text>
+                <AuthStack.Screen name='SignIn' />
               </MenuOption>
               <MenuOption value={'Login'}>
                 <Text style={styles.menuContent}>Login</Text>
